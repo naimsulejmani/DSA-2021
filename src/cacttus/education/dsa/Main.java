@@ -37,7 +37,7 @@ public class Main {
         list.add(400.35);
         list.add(20000l);
         list.add(reader);//objektin e scanner
-        System.out.println(list.size());
+       // System.out.println(list.size());
 
         //leximi nga ArrayList
 
@@ -45,11 +45,37 @@ public class Main {
         String name = (String) list.get(1);
         String a = (String) list.get(3);
 
-        System.out.println("NR = " + nr);
-        System.out.println("NAME = " + name);
-        System.out.println(a);
+//        System.out.println("NR = " + nr);
+//        System.out.println("NAME = " + name);
+//        System.out.println(a);
 //        list.add(9,"Naim");
 //        list.add(8,"Filan");
+
+
+        //shtypje apo bredhja neper elementet e arrayListes
+        // Provoni te shtepia me kthy me while dhe do..while
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+
+        //listimi i objekteve me for-in (foreach)
+        for (Object item : list) {
+            System.out.println(item);
+        }
+// <   > definon tipin te cilin ka me pranu ArrayList
+        ArrayList<String> teams = new ArrayList<>(); // String[] teams = new String[10];
+        teams.add("Real Madrid");
+        teams.add("Barcelona");
+        teams.add("Arsenal");
+
+        teams.add(1,"PSG");
+        //leximi string
+        String ekipi1 = teams.get(0);
+        String ekipi2 = teams.get(1);
+
+        for(String team: teams) {
+            System.out.println(team);
+        }
 
 
 
