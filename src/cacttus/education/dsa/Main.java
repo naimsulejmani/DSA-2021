@@ -6,8 +6,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        String a1 ="NAIM";
+        String b1="NAIM";
+        boolean c = a1==b1;
+        System.out.println(c);
         // write your code here
-
+if(true) return;
         //deklarimi i vargut te thjeshte
         int[] numbers;
         //inicializimi i vargut
