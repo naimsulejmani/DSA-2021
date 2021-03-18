@@ -112,6 +112,10 @@ public class Ushtrime {
                 largNgaMesatarja) {
             System.out.printf("%.2f ,", nr);
         }
+
+        System.out.println("TEST");
+        int value = getMaximumNumberValueOrIndex(varg,'u');
+        System.out.println(value);
     }
 
     /*
@@ -121,8 +125,8 @@ public class Ushtrime {
     //ensari
     public static int ktheNrMin(int[] array) {
         int min = array[0];
-        for(int i = 0;i<array.length;i++) {
-            if(min > array[i]) {
+        for (int i = 0; i < array.length; i++) {
+            if (min > array[i]) {
                 min = array[i];
             }
         }
@@ -133,29 +137,29 @@ public class Ushtrime {
     public static int ktheNrMinOseIndex(int[] array, String vlera) {
         int min = array[0];
         int index = 0;
-        for(int i = 0;i<array.length;i++) {
-            if(min > array[i]) {
+        for (int i = 0; i < array.length; i++) {
+            if (min > array[i]) {
                 min = array[i];
                 index = i;
             }
         }
-        if(vlera.equals("index"))
+        if (vlera.equals("index"))
             return index;
         else
             return min;
     }
 
     //resul selamni
-    static int minNumPozita(int[] arr){
+    static int minNumPozita(int[] arr) {
         int index = 0;
         int min = arr[0];
-        for(int i = 0; i < arr.length; i++){
-            if(min > arr[i]){
+        for (int i = 0; i < arr.length; i++) {
+            if (min > arr[i]) {
                 min = arr[i];
             }
         }
-        for(int i = 0; i<arr.length;i++){
-            if(arr[i] == min)
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == min)
                 index = i;
         }
 
@@ -164,16 +168,16 @@ public class Ushtrime {
 
     //resuli
     //Class -> krijoni nje klase me 2 varaibal Index dhe Value ->
-    static String minNumPozita2(int[] arr){
+    static String minNumPozita2(int[] arr) {
         int index = 0;
         int min = arr[0];
-        for(int i = 0; i < arr.length; i++){
-            if(min > arr[i]){
+        for (int i = 0; i < arr.length; i++) {
+            if (min > arr[i]) {
                 min = arr[i];
             }
         }
-        for(int i = 0; i<arr.length;i++){
-            if(arr[i] == min)
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == min)
                 index = i;
         }
         return "Numri minimal ne varg eshte: " + min + " ne poziten " + index;
@@ -184,14 +188,32 @@ public class Ushtrime {
     // return new int[] {index, min};
 
     //resul selmani
-    static int maxNum(int[] arr){
+    static int maxNum(int[] arr) {
         int max = arr[0];
-        for(int i = 0; i < arr.length; i++){
-            if(max < arr[i]){
+        for (int i = 0; i < arr.length; i++) {
+            if (max < arr[i]) {
                 max = arr[i];
             }
         }
         return max;
+    }
+
+    //naim sulejmani
+    static int maxNumIndex(int array[]) {
+        int maxIndex = 0; //supozojme se ne indeksion zero eshte numri i madh
+        for (int i = 1; i < array.length; i++) { //fillo prej elemntit vijeus 1 deri ne fund te vargu
+            if (array[maxIndex] < array[i]) {
+                //nese maxValue eshte me i vogel se elemnti vijues atehere ndro indeksin dhe vlere
+                maxIndex = i;
+            }
+        }
+        return maxIndex;
+    }
+
+    static int getMaximumNumberValueOrIndex(int array[], char control) {
+        if (control == 'I')
+            return maxNumIndex(array);
+        else return maxNum(array);
     }
 
 
