@@ -117,6 +117,52 @@ public class BinarySearchTree {
         }
         return iter.getKey();
     }
+
+    public boolean existsKey(int key) {
+        Node searchedNode = search(key, root);
+        return searchedNode != null;
+    }
+
+    private Node search(int key, Node root) {
+        if (root == null || root.getKey() == key) return root;
+
+        if (root.getKey() > key)
+            return search(key, root.getLeft());
+        else return search(key, root.getRight());
+    }
+
+    public void delete(int data) {
+        //duhet me gjujt nje gabim nese ska nyje - NoNodes
+        //duhet me gjujt nje gabim nese nuk gjindet kjo vlere ne peme - NodesNotFoundException
+        root = delete(root, data);
+    }
+
+    private Node delete(Node root, int data) {
+        if (root == null) return root;
+
+        if (data < root.getKey()) {
+            root.setLeft(delete(root.getLeft(), data));
+        } else if (data > root.getKey()) {
+            root.setRight(delete(root.getRight(), data));
+        } else {
+            if (root.getLeft() == null)
+                return root.getRight(); // nese ana e majt eshte null e zaendeson ana e djathte nyjen
+            else if (root.getRight() == null)
+                return root.getLeft(); // nese ana e djatht eshte null ateher ee zavendeson ana e majt
+
+            //nyja i ka dy femij
+            //merr prej inored succesrron (vleren me te vogel (minimale) prej anes se djath)
+//            try {
+//                root.setKey(minimumValue(root.getRight())); // duhet te gjendet minimumi i anes se djatht (jo minimumi i krejt pemes)
+//                root.setRight(delete(root.getRight(), root.getData()));
+//            } catch (NoNodesInBSTException ex) {
+//                return null;
+//            }
+        }
+        return root;
+
+    }
+
 }
 
 

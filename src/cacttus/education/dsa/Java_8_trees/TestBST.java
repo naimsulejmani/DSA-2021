@@ -13,8 +13,11 @@ public class TestBST {
         //bst.preOrderTraversal();
         bst.postOrderTraversal();
         try {
-            System.out.println(bst.minimum());
-            System.out.println(bst.maximum());
+            System.out.println("Minimum: " + bst.minimum());
+            System.out.println("Maximum: " + bst.maximum());
+            System.out.println("Exists (175): " + bst.existsKey(175));
+            System.out.println("Exists (50): " + bst.existsKey(50));
+
         } catch (NoElementException e) {
             e.printStackTrace();
         }
