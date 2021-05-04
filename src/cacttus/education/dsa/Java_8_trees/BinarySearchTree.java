@@ -50,13 +50,73 @@ public class BinarySearchTree {
     }
 
     private void inorder(Node root) {
-        if (root == null) return;
+        if (root == null) return;//M-RR-D
         inorder(root.getLeft());
         System.out.println(root.getKey());
         inorder(root.getRight());
     }
 
+    public void preOrderTraversal() {
+        preorder(root);
+    }
 
+    //RR -> M -> D
+    private void preorder(Node root) {
+        if (root == null) return;
+        System.out.println(root.getKey());
+        preorder(root.getLeft());
+        preorder(root.getRight());
+    }
+
+    //postorder traversal
+    // M->D->RR
+    public void postOrderTraversal() {
+        postorder(root);
+    }
+
+    private void postorder(Node root) {
+        if (root == null) return;
+        postorder(root.getLeft());
+        postorder(root.getRight());
+        System.out.println(root.getKey());
+    }
+
+    //naim_traversal
+    //desc_inorder
+    //D-RR-M
+
+    public void desc_inorderTraversal() {
+        desc_inorder(root);
+    }
+
+    private void desc_inorder(Node root) {
+        if (root == null) return;
+        desc_inorder(root.getRight());
+        System.out.println(root.getKey());
+        desc_inorder(root.getLeft());
+    }
+
+    public int minimum() throws NoElementException {
+        if (isEmpty()) {
+            //throw exception
+            throw new NoElementException("BST nuk ka asnje elemetn!!!");
+        }
+        Node iter = root;
+        while (iter.getLeft() != null) {
+            iter = iter.getLeft();
+        }
+        return iter.getKey();
+    }
+
+    public int maximum() throws NoElementException {
+        if (isEmpty())
+            throw new NoElementException("BST nuk ka asnje element!");
+        Node iter = root;
+        while (iter.getRight() != null) {
+            iter = iter.getRight();
+        }
+        return iter.getKey();
+    }
 }
 
 

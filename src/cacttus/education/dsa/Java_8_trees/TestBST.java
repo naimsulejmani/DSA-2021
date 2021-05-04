@@ -9,6 +9,14 @@ public class TestBST {
         bst.insert(200);
         bst.insert(150);
         bst.insert(50);
-        bst.inOrderTraversal();
+        //bst.inOrderTraversal();
+        //bst.preOrderTraversal();
+        bst.postOrderTraversal();
+        try {
+            System.out.println(bst.minimum());
+            System.out.println(bst.maximum());
+        } catch (NoElementException e) {
+            e.printStackTrace();
+        }
     }
 }
