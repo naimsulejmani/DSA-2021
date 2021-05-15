@@ -7,31 +7,32 @@ public class HeapSort {
         int[] array = {59, 45, 87, 100, 2, 11, 56, 44, 33, 12, 98, 87};
 
         HeapSort heapSort = new HeapSort();
-        System.out.println(heapSort.findFuqia(12));
+   //     System.out.println(heapSort.findFuqia(12));
         heapSort.print(array);
         System.out.println();
         heapSort.sort(array);
         heapSort.print(array);
     }
 
-    public int findFuqia(int value) {
-        int baza = 2;
-        int counter = 0;
-        while (value >= 1) {
-            value /= baza;
-            counter++;
-        }
-        return counter;
-    }
+//    public int findFuqia(int value) {
+//        int baza = 2;
+//        int counter = 0;
+//        while (value >= 1) {
+//            value /= baza;
+//            counter++;
+//        }
+//        return counter;
+//    }
 
     public void sort(int[] array) {
         //nderto pemen - stogun
         //nese i kemi 20 elemente ne varg 20/2 = 10 vizita me kontrollu me ndertu stogun heap
         //
 
-        for (int i = findFuqia(array.length) - 1; i >= 0; i--)
+        for (int i = array.length / 2 - 1; i >= 0; i--)
             heapify(array, array.length, i);
 
+        print(array);
         //shthurja e elemtit nga stogu heap - nga heap tree
         //behet duke terhjek elemetin e pare - root (elemetin 0)->
         //duke e zavendesu me elementin e fundit , duke e zvogul hapesin
@@ -58,6 +59,7 @@ public class HeapSort {
         for (int number : array) {
             System.out.printf("%5d,", number);
         }
+        System.out.println();
     }
 
 
@@ -67,11 +69,11 @@ public class HeapSort {
         int rightIndex = leftIndex + 1;
 
         //nese femija i anes majte eshte me imadh atehere largest eshte a ana e majt
-        if (array[leftIndex] > array[currentIndex] && leftIndex < length)
+        if (leftIndex < length && array[leftIndex] > array[largest])
             largest = leftIndex;
 
         //nese femija i anes djathte eshte me imadh atehere largest eshte a ana e djathte
-        if (array[rightIndex] > array[currentIndex] && rightIndex < length)
+        if (rightIndex < length && array[rightIndex] > array[largest])
             largest = rightIndex;
 
         if (largest != currentIndex) {
